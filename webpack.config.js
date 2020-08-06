@@ -1,21 +1,38 @@
+const path = require('path');
+
+const DIST_DIR = path.resolve(__dirname, 'client', 'public');
+const SRC_DIR = path.resolve(__dirname, 'client', 'src');
+
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: `${SRC_DIR}/index.jsx`,
+  output: {
+    path: DIST_DIR,
+    filename: 'bundle.js',
+  },
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: [/\.jsx$/],
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+        options: {
+          fix: true,
+        },
+      },
       {
         test: [/\.jsx$/],
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-react', '@babel/preset-env']
-          }
-        }
-      }
-    ]
+            presets: ['@babel/preset-react', '@babel/preset-env'],
+          },
+        },
+      },
+    ],
   },
-   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/client/dist'
-  }
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
 };
