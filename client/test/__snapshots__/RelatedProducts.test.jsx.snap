@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Related Products should render properly Related Products component should render correctly 1`] = `ShallowWrapper {}`;
