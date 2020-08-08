@@ -1,8 +1,11 @@
 import React from 'react';
+import RelatedProducts from './RelatedProducts';
+import Outfit from './Outfit';
 
 const App = () => (
   <div>
-    <h1 id="title">Hello, World</h1>
+    <RelatedProducts />
+    <Outfit />
   </div>
 );
 
