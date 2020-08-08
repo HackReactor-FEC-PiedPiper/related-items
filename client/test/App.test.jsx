@@ -5,7 +5,14 @@ import App from '../src/components/App';
 
 configure({ adapter: new Adapter() });
 
-test('Should contain the title \'Hello, World\'', () => {
-  const wrapper = shallow(<App />);
-  expect(wrapper.find('#title').text()).toBe('Hello, World');
+describe('App should render properly', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  test('App component should render correctly', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 });
