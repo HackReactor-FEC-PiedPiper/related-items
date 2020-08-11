@@ -22,7 +22,7 @@ const RelatedProducts = () => {
               category: product[0].data.category,
               name: product[0].data.name,
               price: product[0].data.default_price,
-              photoURL: product[1].data.results[0].photos[0].thumbnail_url,
+              photoURL: product[1].data.results[0].photos[0].url,
               ratings: product[2].data.ratings,
             }));
             setItems(resultsObj);
