@@ -10,14 +10,14 @@ const Card = ({ product }) => {
   return (
     <div className="card">
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
-      <div className="card-content red">
+      <div className="card-content">
         <p id="category" className="light">{category}</p>
         <h3>{name}</h3>
         <p id="price" className="light">
           $
           {price}
         </p>
-        <p id="stars"><Stars ratings={ratings} /></p>
+        {Object.keys(ratings).length !== 0 ? <Stars ratings={ratings} /> : null}
       </div>
     </div>
   );
