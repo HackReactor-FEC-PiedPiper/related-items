@@ -16,7 +16,7 @@ describe('Card should render properly', () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<Card product={sampleData}/>);
+    wrapper = shallow(<Card product={sampleData} />);
   });
 
   test('Card component should render correctly', () => {
