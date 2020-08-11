@@ -1,34 +1,41 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Card from './Card';
 
 const RelatedProducts = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch('http://52.26.193.201:3000/products/1/related')
-      .then((res) => res.json())
+    axios.get('http://52.26.193.201:3000/products/1/related')
       .then(
-        (productIds) => {
-          Promise.all(productIds.map((productId) => (
-            fetch(`http://52.26.193.201:3000/products/${productId}`)
-          ))).then((result) => {
-            Promise.all(result.map((res) => res.json()))
-              .then((productInfo) => {
-                console.log('productInfo', productInfo);
-                setItems(productInfo);
-              });
+        (result) => {
+          const productIds = result.data;
+          axios.all(productIds.map((productId) => (
+            axios.all([
+              axios.get(`http://52.26.193.201:3000/products/${productId}`),
+              axios.get(`http://52.26.193.201:3000/products/${productId}/styles`),
+              axios.get(`http://52.26.193.201:3000/reviews/${productId}/meta`),
+            ])
+          ))).then((results) => {
+            const resultsObj = results.map((product) => ({
+              id: product[0].data.id,
+              category: product[0].data.category,
+              name: product[0].data.name,
+              price: product[0].data.default_price,
+              photoURL: product[1].data.results[0].photos[0].url,
+              ratings: product[2].data.ratings,
+            }));
+            setItems(resultsObj);
           });
         },
       );
   }, []);
 
-  console.log('items', items);
-
   return (
     <div id="related-products">
       <h2>RELATED PRODUCTS</h2>
       <div className="card-container">
-        {items.map((product) => (
+        {items.slice(0, 3).map((product) => (
           <Card key={product.id} product={product} />
         ))}
       </div>
