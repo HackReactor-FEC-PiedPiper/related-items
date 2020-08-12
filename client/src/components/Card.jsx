@@ -10,7 +10,7 @@ const Card = ({ product, toggle }) => {
   return (
     <div className="card">
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
-      <i className="far fa-star" onClick={toggle} />
+      <i className="far fa-star" onClick={() => toggle(product)} role="button" tabIndex={0} onKeyPress={toggle} aria-label="Compare" />
       <div className="card-content">
         <div id="category" className="light">{category}</div>
         <h3>{name}</h3>
@@ -25,6 +25,7 @@ const Card = ({ product, toggle }) => {
 };
 
 Card.propTypes = {
+  toggle: PropTypes.func.isRequired,
   product: PropTypes.shape(
     {
       category: PropTypes.string.isRequired,

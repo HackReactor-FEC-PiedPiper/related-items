@@ -81,3 +81,12 @@ i {
 i:hover {
   cursor: pointer;
 }
+
+.modal-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-column {
+  margin: 10px;
+}
