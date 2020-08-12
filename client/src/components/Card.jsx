@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Stars from './Stars';
 
-const Card = ({ product }) => {
+const Card = ({ product, toggle }) => {
   const {
     category, name, price, photoURL, ratings,
   } = product;
@@ -10,7 +10,7 @@ const Card = ({ product }) => {
   return (
     <div className="card">
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
-      <i className="far fa-star" />
+      <i className="far fa-star" onClick={toggle} />
       <div className="card-content">
         <div id="category" className="light">{category}</div>
         <h3>{name}</h3>

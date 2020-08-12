@@ -32,15 +32,19 @@ const RelatedProducts = () => {
       );
   }, []);
 
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+
   return (
     <div id="related-products">
       <h2>RELATED PRODUCTS</h2>
       <div className="card-container">
         {items.slice(0, 3).map((product) => (
-          <Card key={product.id} product={product} />
+          <Card key={product.id} product={product} toggle={toggle} />
         ))}
       </div>
-      <ComparisonModal buttonLabel="Click me!" />
+      <ComparisonModal buttonLabel="Click me!" modal={modal} toggle={toggle} />
     </div>
   );
 };
