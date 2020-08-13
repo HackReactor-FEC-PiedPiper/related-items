@@ -85,7 +85,12 @@ const RelatedProducts = () => {
           <Card key={product.id} product={product} toggle={toggle} />
         ))}
       </div>
-      <ComparisonModal buttonLabel="Click me!" modal={modal} toggle={toggle} productToCompare={productToCompare} currentProduct={currentProduct} />
+      <ComparisonModal
+        modal={modal}
+        toggle={toggle}
+        productToCompare={productToCompare}
+        currentProduct={currentProduct}
+      />
     </div>
   );
 };

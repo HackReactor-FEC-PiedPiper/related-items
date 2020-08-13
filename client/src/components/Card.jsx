@@ -10,7 +10,7 @@ const Card = ({ product, toggle }) => {
   return (
     <div className="card">
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
-      <i className="far fa-star" onClick={() => toggle(product)} role="button" tabIndex={0} onKeyPress={toggle} aria-label="Compare" />
+      <i className="far fa-star" onClick={() => toggle(product)} role="button" tabIndex={0} onKeyPress={toggle} aria-label="compare" />
       <div className="card-content">
         <div id="category" className="light">{category}</div>
         <h3>{name}</h3>
