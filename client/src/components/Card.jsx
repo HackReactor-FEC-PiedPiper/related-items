@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Stars from './Stars';
 
-const Card = ({ product }) => {
+const Card = ({ product, toggle }) => {
   const {
     category, name, price, photoURL, ratings,
   } = product;
@@ -10,13 +10,14 @@ const Card = ({ product }) => {
   return (
     <div className="card">
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
+      <i className="far fa-star" onClick={() => toggle(product)} role="button" tabIndex={0} onKeyPress={toggle} aria-label="Compare" />
       <div className="card-content">
-        <p id="category" className="light">{category}</p>
+        <div id="category" className="light">{category}</div>
         <h3>{name}</h3>
-        <p id="price" className="light">
+        <div id="price" className="light">
           $
           {price}
-        </p>
+        </div>
         {Object.keys(ratings).length !== 0 ? <Stars ratings={ratings} /> : null}
       </div>
     </div>
@@ -24,6 +25,7 @@ const Card = ({ product }) => {
 };
 
 Card.propTypes = {
+  toggle: PropTypes.func.isRequired,
   product: PropTypes.shape(
     {
       category: PropTypes.string.isRequired,

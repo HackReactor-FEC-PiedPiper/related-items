@@ -7,7 +7,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
-  line-height: 1.6;
 }
 
 h2 {
@@ -30,6 +29,17 @@ h3 {
   border: 1px solid #777070;
   background-color: white;
   width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-content {
+  margin: 10px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .image-placeholder {
@@ -44,13 +54,9 @@ img {
   object-fit: cover;
 }
 
-.card-content {
-  margin: 10px;
-  color: #333;
-}
-
-.card-content p {
+.card-content div {
   font-size: 13px;
+  margin-bottom: .5rem;
 }
 
 /* Related Products & Margin Styling */
@@ -63,4 +69,62 @@ img {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+/* Modal Styling */
+i {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  color: white;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.modal-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-column {
+  margin: 10px;
+}
+
+.custom-modal-style {
+  width: 800px;
+  text-align: center;
+}
+
+/* spacing */
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  /* border: 3px solid #333; */
+  text-align: center;
+}
+
+thead th:nth-child(1) {
+  width: 33%;
+}
+
+thead th:nth-child(2) {
+  width: 33%;
+}
+
+thead th:nth-child(3) {
+  width: 33%;
+}
+
+th {
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
+td {
+  letter-spacing: 1px;
+  padding: 20px;
 }
