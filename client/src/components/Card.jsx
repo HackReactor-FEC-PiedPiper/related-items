@@ -15,7 +15,6 @@ const Card = ({ product, toggle }) => {
         <div id="category" className="light">{category}</div>
         <h3>{name}</h3>
         <div id="price" className="light">
-          $
           {price}
         </div>
         {Object.keys(ratings).length !== 0 ? <Stars ratings={ratings} /> : null}

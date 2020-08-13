@@ -26,8 +26,6 @@ const RelatedProducts = () => {
     });
   }, []);
 
-  console.log('currentProduct', currentProduct);
-
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
@@ -47,11 +45,11 @@ const RelatedProducts = () => {
             ])
           ))).then((results) => {
             const resultsArray = [];
-            for (let i = 0; i < results.length; i++) {
+            for (let i = 0; i < results.length; i += 1) {
               const resultsObj = {};
               const product = results[i];
               const { features } = product[0].data;
-              for (let j = 0; j < features.length; j++) {
+              for (let j = 0; j < features.length; j += 1) {
                 resultsObj[features[j].feature] = features[j].value;
               }
 
@@ -64,7 +62,6 @@ const RelatedProducts = () => {
               resultsObj.ratings = product[2].data.ratings;
               resultsArray.push(resultsObj);
             }
-            console.log('resultsArray', resultsArray);
             setRelatedProducts(resultsArray);
           });
         },
