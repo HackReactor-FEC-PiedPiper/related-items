@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Carousel from 'react-multi-carousel';
 import Card from './Card';
 import ComparisonModal from './ComparisonModal';
 
@@ -77,14 +78,34 @@ const RelatedProducts = () => {
     setModal(!modal);
   };
 
+  const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 4,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    },
+  };
+
   return (
     <div id="related-products">
       <h2>RELATED PRODUCTS</h2>
-      <div className="card-container">
-        {relatedProducts.slice(0, 3).map((product) => (
+      <Carousel responsive={responsive}>
+        {relatedProducts.map((product) => (
           <Card key={product.id} product={product} toggle={toggle} />
         ))}
-      </div>
+      </Carousel>
       <ComparisonModal
         modal={modal}
         toggle={toggle}
