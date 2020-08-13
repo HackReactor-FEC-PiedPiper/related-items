@@ -22,7 +22,6 @@ h3 {
 
 .light {
   color: #777070;
-  margin-bottom: .5rem;
 }
 
 /* Card Styling */
@@ -57,6 +56,7 @@ img {
 
 .card-content div {
   font-size: 13px;
+  margin-bottom: .5rem;
 }
 
 /* Related Products & Margin Styling */
@@ -71,6 +71,7 @@ img {
   justify-content: space-between;
 }
 
+/* Modal Styling */
 i {
   position: absolute;
   right: 0;
@@ -89,4 +90,41 @@ i:hover {
 
 .modal-column {
   margin: 10px;
+}
+
+.custom-modal-style {
+  width: 800px;
+  text-align: center;
+}
+
+/* spacing */
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  /* border: 3px solid #333; */
+  text-align: center;
+}
+
+thead th:nth-child(1) {
+  width: 33%;
+}
+
+thead th:nth-child(2) {
+  width: 33%;
+}
+
+thead th:nth-child(3) {
+  width: 33%;
+}
+
+th {
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
+td {
+  letter-spacing: 1px;
+  padding: 20px;
 }

@@ -9,8 +9,8 @@ const RelatedProducts = () => {
 
   useEffect(() => {
     axios.all([
-      axios.get('http://52.26.193.201:3000/products/1'),
-      axios.get('http://52.26.193.201:3000/reviews/1/meta'),
+      axios.get('http://52.26.193.201:3000/products/5'),
+      axios.get('http://52.26.193.201:3000/reviews/5/meta'),
     ]).then((results) => {
       const resultObj = {
         currentCategory: results[0].data.category,
@@ -26,10 +26,14 @@ const RelatedProducts = () => {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://52.26.193.201:3000/products/1/related')
+    axios.get('http://52.26.193.201:3000/products/5/related')
       .then(
         (result) => {
-          const productIds = result.data;
+          const onlyUnique = (value, index, self) => (
+            self.indexOf(value) === index
+          );
+
+          const productIds = result.data.filter(onlyUnique);
           axios.all(productIds.map((productId) => (
             axios.all([
               axios.get(`http://52.26.193.201:3000/products/${productId}`),

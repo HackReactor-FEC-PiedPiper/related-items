@@ -19,14 +19,14 @@ const ComparisonModal = ({
 
   return (
     <div>
-      <Modal isOpen={modal} toggle={toggle}>
+      <Modal isOpen={modal} toggle={toggle} size="lg">
         <ModalHeader toggle={toggle}>Comparing</ModalHeader>
         <ModalBody>
           <table>
             <thead>
               <tr>
                 <th>{name}</th>
-                <th>Characteristic</th>
+                <th> </th>
                 <th>{currentName}</th>
               </tr>
             </thead>
@@ -47,7 +47,10 @@ const ComparisonModal = ({
                   {price}
                 </td>
                 <td>Price</td>
-                <td>{currentPrice}</td>
+                <td>
+                  $
+                  {currentPrice}
+                </td>
               </tr>
               {ratings && currentRatings ? (
                 <tr>
@@ -63,9 +66,8 @@ const ComparisonModal = ({
           </table>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={toggle}>Do Something</Button>
           {' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button color="secondary" onClick={toggle}>Close</Button>
         </ModalFooter>
       </Modal>
     </div>
