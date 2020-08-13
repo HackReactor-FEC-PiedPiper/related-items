@@ -9,13 +9,8 @@ import Stars from './Stars';
 const ComparisonModal = ({
   modal, toggle, productToCompare, currentProduct,
 }) => {
-  const {
-    category, description, ratings, price, name,
-  } = productToCompare;
-
-  const {
-    currentCategory, currentDescription, currentRatings, currentPrice, currentName,
-  } = currentProduct;
+  console.log(productToCompare);
+  console.log(currentProduct);
 
   return (
     <div>
@@ -25,43 +20,50 @@ const ComparisonModal = ({
           <table>
             <thead>
               <tr>
-                <th>{name}</th>
+                <th>{currentProduct.name}</th>
                 <th> </th>
-                <th>{currentName}</th>
+                <th>{productToCompare.name}</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{category}</td>
-                <td>Category</td>
-                <td>{currentCategory}</td>
-              </tr>
-              <tr>
-                <td>{description}</td>
-                <td>Description</td>
-                <td>{currentDescription}</td>
-              </tr>
-              <tr>
-                <td>
-                  $
-                  {price}
-                </td>
-                <td>Price</td>
-                <td>
-                  $
-                  {currentPrice}
-                </td>
-              </tr>
-              {ratings && currentRatings ? (
-                <tr>
-                  <td>{Object.keys(ratings).length !== 0 ? <Stars ratings={ratings} /> : null}</td>
-                  <td>Rating</td>
-                  <td>
-                    {Object.keys(currentRatings).length !== 0
-                      ? <Stars ratings={currentRatings} /> : null}
-                  </td>
-                </tr>
-              ) : null}
+              {Object.keys(currentProduct).map((characteristic) => {
+                if (characteristic === 'ratings' && typeof currentProduct[characteristic] === 'object') {
+                  return (
+                    <tr>
+                      <td>
+                        <Stars ratings={currentProduct.ratings} />
+                      </td>
+                      <td>Rating</td>
+                      <td>
+                        <Stars ratings={productToCompare.ratings} />
+                      </td>
+                    </tr>
+                  );
+                }
+                if (characteristic !== 'name' && characteristic !== 'description' && characteristic !== 'category') {
+                  return (
+                    <tr>
+                      <td>{currentProduct[characteristic]}</td>
+                      <td>{characteristic[0].toUpperCase() + characteristic.substring(1)}</td>
+                      <td>{productToCompare[characteristic]}</td>
+                    </tr>
+                  );
+                }
+                return null;
+              })}
+              {Object.keys(productToCompare).map((characteristic) => {
+                if (characteristic !== 'ratings' && characteristic !== 'photoURL' && characteristic !== 'id' && currentProduct[characteristic] === undefined) {
+                  console.log('characteristic', characteristic);
+                  return (
+                    <tr>
+                      <td> </td>
+                      <td>{characteristic[0].toUpperCase() + characteristic.substring(1)}</td>
+                      <td>{productToCompare[characteristic]}</td>
+                    </tr>
+                  );
+                }
+                return null;
+              })}
             </tbody>
           </table>
         </ModalBody>

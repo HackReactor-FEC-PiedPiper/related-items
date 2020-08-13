@@ -13,15 +13,20 @@ const RelatedProducts = () => {
       axios.get('http://52.26.193.201:3000/reviews/5/meta'),
     ]).then((results) => {
       const resultObj = {
-        currentCategory: results[0].data.category,
-        currentName: results[0].data.name,
-        currentPrice: results[0].data.default_price,
-        currentDescription: results[0].data.description,
-        currentRatings: results[1].data.ratings,
+        category: results[0].data.category,
+        name: results[0].data.name,
+        price: `$${results[0].data.default_price}`,
+        description: results[0].data.description,
+        ratings: results[1].data.ratings,
       };
+      results[0].data.features.forEach((item) => {
+        resultObj[item.feature] = item.value;
+      });
       setCurrentProduct(resultObj);
     });
   }, []);
+
+  console.log('currentProduct', currentProduct);
 
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -41,16 +46,26 @@ const RelatedProducts = () => {
               axios.get(`http://52.26.193.201:3000/reviews/${productId}/meta`),
             ])
           ))).then((results) => {
-            const resultsObj = results.map((product) => ({
-              id: product[0].data.id,
-              category: product[0].data.category,
-              name: product[0].data.name,
-              price: product[0].data.default_price,
-              description: product[0].data.description,
-              photoURL: product[1].data.results[0].photos[0].url,
-              ratings: product[2].data.ratings,
-            }));
-            setRelatedProducts(resultsObj);
+            const resultsArray = [];
+            for (let i = 0; i < results.length; i++) {
+              const resultsObj = {};
+              const product = results[i];
+              const { features } = product[0].data;
+              for (let j = 0; j < features.length; j++) {
+                resultsObj[features[j].feature] = features[j].value;
+              }
+
+              resultsObj.id = product[0].data.id;
+              resultsObj.category = product[0].data.category;
+              resultsObj.name = product[0].data.name;
+              resultsObj.price = `$${product[0].data.default_price}`;
+              resultsObj.description = product[0].data.description;
+              resultsObj.photoURL = product[1].data.results[0].photos[0].url;
+              resultsObj.ratings = product[2].data.ratings;
+              resultsArray.push(resultsObj);
+            }
+            console.log('resultsArray', resultsArray);
+            setRelatedProducts(resultsArray);
           });
         },
       );
