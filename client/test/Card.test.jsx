@@ -10,8 +10,8 @@ describe('Card should render properly', () => {
 
   const sampleData = {
     category: 'Shoes',
-    name: 'Air Force 1',
-    price: '123',
+    name: 'Heir Force Ones',
+    price: '$123',
     photoURL: null,
   };
 
@@ -28,14 +28,12 @@ describe('Card should render properly', () => {
   });
 
   test('Should contain a product name', () => {
-    expect(wrapper.find('h3').text()).toBe('Air Force 1');
+    expect(wrapper.find('h3').text()).toBe('Heir Force Ones');
   });
 
   test('Should contain a price', () => {
     expect(wrapper.find('#price').text()).toBe('$123');
   });
-
-  test('Should contain a star review', () => {
-    expect(wrapper.find('#stars').text()).toBe('#####');
-  });
 });
+
+//  How do I simulate a click when it affects a different component than the one I am in?
