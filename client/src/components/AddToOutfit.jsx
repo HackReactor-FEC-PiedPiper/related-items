@@ -10,6 +10,7 @@ const AddToOutfit = ({ addToOutfit }) => {
     axios.all([
       axios.get('http://52.26.193.201:3000/products/5'),
       axios.get('http://52.26.193.201:3000/reviews/5/meta'),
+      axios.get('http://52.26.193.201:3000/products/5/styles'),
     ]).then((results) => {
       const resultObj = {
         id: results[0].data.id,
@@ -18,6 +19,7 @@ const AddToOutfit = ({ addToOutfit }) => {
         price: `$${results[0].data.default_price}`,
         description: results[0].data.description,
         ratings: results[1].data.ratings,
+        photoURL: results[2].data.results[0].photos[0].url,
       };
       results[0].data.features.forEach((item) => {
         resultObj[item.feature] = item.value;

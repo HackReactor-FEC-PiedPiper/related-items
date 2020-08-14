@@ -8,6 +8,7 @@ const Outfit = () => {
   const [outfit, setOutfit] = useState([]);
 
   useEffect(() => {
+    localStorage.clear();
     setOutfit(localStorage.get('outfit') || []);
   }, []);
 
