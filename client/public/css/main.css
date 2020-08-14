@@ -60,6 +60,26 @@ img {
   margin-bottom: .5rem;
 }
 
+.star-btn {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.x-btn {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  color: red;
+  font-size: 20px;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
 /* Related Products & Margin Styling */
 #related-products, #outfit {
   margin: 75px auto;
@@ -73,17 +93,6 @@ img {
 }
 
 /* Modal Styling */
-i {
-  position: absolute;
-  right: 0;
-  margin: 10px;
-  color: white;
-}
-
-i:hover {
-  cursor: pointer;
-}
-
 .modal-container {
   display: flex;
   flex-direction: row;
@@ -98,8 +107,7 @@ i:hover {
   text-align: center;
 }
 
-/* spacing */
-
+/* Table */
 table {
   table-layout: fixed;
   width: 100%;
@@ -128,4 +136,28 @@ th {
 td {
   letter-spacing: 1px;
   padding: 20px;
+}
+
+/* AddToOutfit Styling */
+
+.plus {
+  font-size: 50px;
+  margin: 20px auto;
+  color: green;
+}
+
+.add-to-outfit {
+  font-size: 30px;
+  margin: 5px auto;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.add-to-outfit div, .add-to-outfit strong {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.outfit {
+  justify-content: center;
 }
