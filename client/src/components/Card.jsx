@@ -12,7 +12,7 @@ const Card = ({ product, handleClick, button }) => {
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
       { button === 'star' ? (
         <i
-          className="far fa-star btn"
+          className="far fa-star star-btn"
           onClick={() => handleClick(product)}
           role="button"
           tabIndex={0}
@@ -21,7 +21,7 @@ const Card = ({ product, handleClick, button }) => {
         />
       ) : (
         <i
-          className="far fa-times-circle btn"
+          className="far fa-times-circle x-btn"
           onClick={() => handleClick(id)}
           role="button"
           tabIndex={0}
@@ -46,7 +46,7 @@ Card.propTypes = {
   button: PropTypes.string.isRequired,
   product: PropTypes.shape(
     {
-      id: PropTypes.number.isRequired,
+      id: PropTypes.number,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       price: PropTypes.string.isRequired,

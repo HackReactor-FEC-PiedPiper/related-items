@@ -8,32 +8,33 @@ const Outfit = () => {
   const [outfit, setOutfit] = useState([]);
 
   useEffect(() => {
-    localStorage.clear();
     setOutfit(localStorage.get('outfit') || []);
   }, []);
 
   const addToOutfit = (newItem) => {
-    setOutfit([...outfit, newItem]);
-    localStorage.set('outfit', [...outfit, newItem]);
+    let unique = true;
+    outfit.forEach((item) => {
+      if (newItem.name === item.name) {
+        unique = false;
+      }
+    });
+
+    if (unique) {
+      setOutfit([...outfit, newItem]);
+      localStorage.set('outfit', [...outfit, newItem]);
+    }
   };
 
   const deleteFromOutfit = (itemToDelete) => {
-    console.log('itemToDelete', itemToDelete);
     let index;
     outfit.forEach((item, i) => {
       if (item.id === itemToDelete) {
         index = i;
       }
     });
-    console.log('index', index);
-    console.log('outfit', outfit);
-    const newOutfit = outfit;
-    newOutfit.splice(index, 1);
-    console.log('newOutfit', newOutfit);
-    setOutfit(newOutfit);
-    console.log('local storage before', localStorage.get('outfit'));
-    localStorage.set('outfit', newOutfit);
-    console.log('local storage after', localStorage.get('outfit'));
+
+    setOutfit(outfit.slice(0, index).concat(outfit.slice(index + 1)));
+    localStorage.set('outfit', outfit.slice(0, index).concat(outfit.slice(index + 1)));
   };
 
   const responsive = {
