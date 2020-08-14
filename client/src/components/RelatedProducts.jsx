@@ -103,7 +103,7 @@ const RelatedProducts = () => {
       <h2>RELATED PRODUCTS</h2>
       <Carousel responsive={responsive}>
         {relatedProducts.map((product) => (
-          <Card key={product.id} product={product} toggle={toggle} />
+          <Card key={product.id} product={product} handleClick={toggle} button="star" />
         ))}
       </Carousel>
       <ComparisonModal

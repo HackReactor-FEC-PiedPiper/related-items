@@ -2,15 +2,33 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Stars from './Stars';
 
-const Card = ({ product, toggle }) => {
+const Card = ({ product, handleClick, button }) => {
   const {
-    category, name, price, photoURL, ratings,
+    id, category, name, price, photoURL, ratings,
   } = product;
 
   return (
     <div className="card">
       {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
-      <i className="far fa-star" onClick={() => toggle(product)} role="button" tabIndex={0} onKeyPress={toggle} aria-label="compare" />
+      { button === 'star' ? (
+        <i
+          className="far fa-star btn"
+          onClick={() => handleClick(product)}
+          role="button"
+          tabIndex={0}
+          onKeyPress={() => handleClick(product)}
+          aria-label="compare"
+        />
+      ) : (
+        <i
+          className="far fa-times-circle btn"
+          onClick={() => handleClick(id)}
+          role="button"
+          tabIndex={0}
+          onKeyPress={() => handleClick(id)}
+          aria-label="delete-from-outfit"
+        />
+      )}
       <div className="card-content">
         <div id="category" className="light">{category}</div>
         <h3>{name}</h3>
@@ -24,7 +42,8 @@ const Card = ({ product, toggle }) => {
 };
 
 Card.propTypes = {
-  toggle: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  button: PropTypes.string.isRequired,
   product: PropTypes.shape(
     {
       category: PropTypes.string.isRequired,
