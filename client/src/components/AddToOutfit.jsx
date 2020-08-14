@@ -28,11 +28,11 @@ const AddToOutfit = ({ addToOutfit }) => {
   return (
     <div className="card outfit">
       <i className="fas fa-plus plus" onClick={() => addToOutfit(currentProduct)} role="button" tabIndex={0} onKeyPress={() => addToOutfit(currentProduct)} aria-label="add-to-outfit" />
-      <h3 className="add-to-outfit">
+      <div className="add-to-outfit">
         <div>Add</div>
         <strong>{currentProduct.name}</strong>
         <div>To Outfit</div>
-      </h3>
+      </div>
     </div>
   );
 };
