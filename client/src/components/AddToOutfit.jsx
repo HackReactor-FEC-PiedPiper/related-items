@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 
 const AddToOutfit = ({ addToOutfit }) => {
@@ -35,6 +36,10 @@ const AddToOutfit = ({ addToOutfit }) => {
       </div>
     </div>
   );
+};
+
+AddToOutfit.propTypes = {
+  addToOutfit: PropTypes.func.isRequired,
 };
 
 export default AddToOutfit;

@@ -46,6 +46,7 @@ Card.propTypes = {
   button: PropTypes.string.isRequired,
   product: PropTypes.shape(
     {
+      id: PropTypes.number.isRequired,
       category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       price: PropTypes.string.isRequired,
