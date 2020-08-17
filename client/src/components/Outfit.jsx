@@ -60,7 +60,7 @@ const Outfit = () => {
   const assembleCarouselItems = () => {
     const carouselItems = [];
 
-    carouselItems.push(<AddToOutfit addToOutfit={addToOutfit} />);
+    carouselItems.push(<AddToOutfit addToOutfit={addToOutfit} key={Math.random()} />);
 
     for (let i = 0; i < outfit.length; i += 1) {
       const product = outfit[i];
