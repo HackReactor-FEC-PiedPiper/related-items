@@ -76,7 +76,7 @@ const Outfit = () => {
 
   return (
     <div id="outfit">
-      <h2>MY OUTFIT</h2>
+      <h2>YOUR OUTFIT</h2>
       {assembleCarouselItems()}
     </div>
   );
