@@ -9,7 +9,12 @@ const Card = ({ product, handleClick, button }) => {
 
   return (
     <div className="card">
-      {photoURL ? <img src={photoURL} alt={name} /> : <div className="image-placeholder" />}
+      {photoURL ? <img src={photoURL} alt={name} /> : (
+        <div className="image-placeholder">
+          <div>No picture to display</div>
+          <i className="fas fa-camera" />
+        </div>
+      )}
       { button === 'star' ? (
         <i
           className="far fa-star star-btn"
