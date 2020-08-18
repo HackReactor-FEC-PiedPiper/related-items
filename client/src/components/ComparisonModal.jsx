@@ -25,7 +25,7 @@ const ComparisonModal = ({
             {Object.keys(currentProduct).map((characteristic) => {
               if (characteristic === 'ratings' && typeof currentProduct[characteristic] === 'object') {
                 return (
-                  <tr>
+                  <tr key={Math.random()}>
                     <td>
                       <Stars ratings={currentProduct.ratings} />
                     </td>
@@ -38,7 +38,7 @@ const ComparisonModal = ({
               }
               if (characteristic !== 'name' && characteristic !== 'description' && characteristic !== 'category') {
                 return (
-                  <tr>
+                  <tr key={Math.random()}>
                     <td>{currentProduct[characteristic]}</td>
                     <td>{characteristic[0].toUpperCase() + characteristic.substring(1)}</td>
                     <td>{productToCompare[characteristic]}</td>
@@ -50,7 +50,7 @@ const ComparisonModal = ({
             {Object.keys(productToCompare).map((characteristic) => {
               if (characteristic !== 'ratings' && characteristic !== 'photoURL' && characteristic !== 'id' && currentProduct[characteristic] === undefined) {
                 return (
-                  <tr>
+                  <tr key={Math.random()}>
                     <td> </td>
                     <td>{characteristic[0].toUpperCase() + characteristic.substring(1)}</td>
                     <td>{productToCompare[characteristic]}</td>

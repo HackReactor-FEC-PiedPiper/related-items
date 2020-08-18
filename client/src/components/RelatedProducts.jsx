@@ -17,7 +17,6 @@ const RelatedProducts = () => {
         category: results[0].data.category,
         name: results[0].data.name,
         price: `$${results[0].data.default_price}`,
-        description: results[0].data.description,
         ratings: results[1].data.ratings,
       };
       results[0].data.features.forEach((item) => {
@@ -58,7 +57,6 @@ const RelatedProducts = () => {
               resultsObj.category = product[0].data.category;
               resultsObj.name = product[0].data.name;
               resultsObj.price = `$${product[0].data.default_price}`;
-              resultsObj.description = product[0].data.description;
               resultsObj.photoURL = product[1].data.results[0].photos[0].url;
               resultsObj.ratings = product[2].data.ratings;
               resultsArray.push(resultsObj);
