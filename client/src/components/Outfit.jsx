@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Carousel from 'react-multi-carousel';
 import localStorage from 'local-storage';
 import AddToOutfit from './AddToOutfit';
 import Card from './Card';
 
-const Outfit = () => {
+const Outfit = ({ currentProduct }) => {
   const [outfit, setOutfit] = useState([]);
 
   useEffect(() => {
@@ -60,7 +61,11 @@ const Outfit = () => {
   const assembleCarouselItems = () => {
     const carouselItems = [];
 
-    carouselItems.push(<AddToOutfit addToOutfit={addToOutfit} key={Math.random()} />);
+    carouselItems.push(<AddToOutfit
+      key={Math.random()}
+      addToOutfit={addToOutfit}
+      currentProduct={currentProduct}
+    />);
 
     for (let i = 0; i < outfit.length; i += 1) {
       const product = outfit[i];
@@ -80,6 +85,25 @@ const Outfit = () => {
       {assembleCarouselItems()}
     </div>
   );
+};
+
+Outfit.propTypes = {
+  currentProduct: PropTypes.shape(
+    {
+      id: PropTypes.number,
+      category: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.string,
+      photoURL: PropTypes.string,
+      ratings: PropTypes.shape({
+        1: PropTypes.number,
+        2: PropTypes.number,
+        3: PropTypes.number,
+        4: PropTypes.number,
+        5: PropTypes.number,
+      }),
+    },
+  ).isRequired,
 };
 
 export default Outfit;

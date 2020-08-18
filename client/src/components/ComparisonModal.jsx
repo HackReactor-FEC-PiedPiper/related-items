@@ -10,8 +10,8 @@ const ComparisonModal = ({
   modal, toggle, productToCompare, currentProduct,
 }) => (
   <div>
-    <Modal isOpen={modal} toggle={toggle} size="lg">
-      <ModalHeader toggle={toggle}>Comparing</ModalHeader>
+    <Modal isOpen={modal} toggle={() => toggle({})} size="lg">
+      <ModalHeader toggle={() => toggle({})}>Comparing</ModalHeader>
       <ModalBody>
         <table>
           <thead>
@@ -27,16 +27,16 @@ const ComparisonModal = ({
                 return (
                   <tr key={Math.random()}>
                     <td>
-                      <Stars ratings={currentProduct.ratings} />
+                      { currentProduct ? <Stars ratings={currentProduct.ratings} /> : null }
                     </td>
                     <td>Rating</td>
                     <td>
-                      <Stars ratings={productToCompare.ratings} />
+                      { currentProduct ? <Stars ratings={currentProduct.ratings} /> : null }
                     </td>
                   </tr>
                 );
               }
-              if (characteristic !== 'name' && characteristic !== 'description' && characteristic !== 'category') {
+              if (characteristic !== 'ratings' && characteristic !== 'photoURL' && characteristic !== 'id' && characteristic !== 'category' && characteristic !== 'name') {
                 return (
                   <tr key={Math.random()}>
                     <td>{currentProduct[characteristic]}</td>
@@ -64,7 +64,7 @@ const ComparisonModal = ({
       </ModalBody>
       <ModalFooter>
         {' '}
-        <Button color="secondary" onClick={toggle}>Close</Button>
+        <Button color="secondary" onClick={() => toggle({})}>Close</Button>
       </ModalFooter>
     </Modal>
   </div>
