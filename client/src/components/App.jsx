@@ -27,7 +27,7 @@ const App = () => {
       });
       setCurrentProduct(resultObj);
     });
-  }, []);
+  }, [productId]);
 
   return (
     <div>

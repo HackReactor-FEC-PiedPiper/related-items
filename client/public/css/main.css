@@ -172,3 +172,13 @@ td {
 .outfit {
   justify-content: center;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}

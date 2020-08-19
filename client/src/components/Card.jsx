@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Stars from './Stars';
 
 const Card = ({ product, handleClick, button }) => {
@@ -9,12 +10,15 @@ const Card = ({ product, handleClick, button }) => {
 
   return (
     <div className="card">
-      {photoURL ? <img src={photoURL} alt={name} /> : (
-        <div className="image-placeholder">
-          <div>No picture to display</div>
-          <i className="fas fa-camera" />
-        </div>
-      )}
+      {photoURL
+        ? <Link to={`/${id}`}><img src={photoURL} alt={name} className="link" /></Link> : (
+          <Link to={`/${id}`} className="link">
+            <div className="image-placeholder">
+              <div>No picture to display</div>
+              <i className="fas fa-camera" />
+            </div>
+          </Link>
+        )}
       { button === 'star' ? (
         <i
           className="far fa-star star-btn"
@@ -36,7 +40,7 @@ const Card = ({ product, handleClick, button }) => {
       )}
       <div className="card-content">
         <div id="category" className="light">{category}</div>
-        <h3>{name}</h3>
+        <Link to={`/${id}`}><h3>{name}</h3></Link>
         <div id="price" className="light">
           {price}
         </div>
