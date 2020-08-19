@@ -1,35 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
 import Carousel from 'react-multi-carousel';
 import Card from './Card';
 import ComparisonModal from './ComparisonModal';
 
-const RelatedProducts = () => {
-  // This is all hard-coded but will be removed when modules are combined
-  const [currentProduct, setCurrentProduct] = useState({});
-
-  useEffect(() => {
-    axios.all([
-      axios.get('http://52.26.193.201:3000/products/5'),
-      axios.get('http://52.26.193.201:3000/reviews/5/meta'),
-    ]).then((results) => {
-      const resultObj = {
-        category: results[0].data.category,
-        name: results[0].data.name,
-        price: `$${results[0].data.default_price}`,
-        ratings: results[1].data.ratings,
-      };
-      results[0].data.features.forEach((item) => {
-        resultObj[item.feature] = item.value;
-      });
-      setCurrentProduct(resultObj);
-    });
-  }, []);
-
+const RelatedProducts = ({ currentProduct }) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://52.26.193.201:3000/products/5/related')
+    axios.get(`http://52.26.193.201:3000/products/${currentProduct.id}/related`)
       .then(
         (result) => {
           const onlyUnique = (value, index, self) => (
@@ -65,13 +45,13 @@ const RelatedProducts = () => {
           });
         },
       );
-  }, []);
+  }, [currentProduct]);
 
   const [modal, setModal] = useState(false);
 
   const [productToCompare, setProductToCompare] = useState({});
 
-  const toggle = (product = {}) => {
+  const toggle = (product) => {
     setProductToCompare(product);
     setModal(!modal);
   };
@@ -112,6 +92,25 @@ const RelatedProducts = () => {
       />
     </div>
   );
+};
+
+RelatedProducts.propTypes = {
+  currentProduct: PropTypes.shape(
+    {
+      id: PropTypes.number,
+      category: PropTypes.string,
+      name: PropTypes.string,
+      price: PropTypes.string,
+      photoURL: PropTypes.string,
+      ratings: PropTypes.shape({
+        1: PropTypes.number,
+        2: PropTypes.number,
+        3: PropTypes.number,
+        4: PropTypes.number,
+        5: PropTypes.number,
+      }),
+    },
+  ).isRequired,
 };
 
 export default RelatedProducts;

@@ -10,7 +10,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "start-server": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -47,11 +48,13 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
+    "express": "^4.17.1",
     "local-storage": "^2.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-multi-carousel": "^2.5.5",
+    "react-router-dom": "^5.2.0",
     "reactstrap": "^8.5.1"
   }
 }
