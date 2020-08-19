@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import RelatedProducts from './RelatedProducts';
 import Outfit from './Outfit';
 
 const App = () => {
-  const [productId] = useState(3);
+  const { productId } = useParams();
   const [currentProduct, setCurrentProduct] = useState({});
 
   useEffect(() => {
