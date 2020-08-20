@@ -5,19 +5,33 @@ import AddToOutfit from '../src/components/AddToOutfit';
 
 configure({ adapter: new Adapter() });
 
-describe('App should render properly', () => {
+describe('AddToOutfit should render properly', () => {
   let wrapper;
   let result;
+
+  const sampleProduct = {
+    id: 13,
+    category: 'Dress',
+    name: 'Polka Dot A-Line Dress',
+    price: '$110',
+    photoURL: null,
+    ratings: {},
+  };
 
   const sampleAddToOutfit = () => {
     result = 'Added to Outfit!';
   };
 
   beforeEach(() => {
-    wrapper = shallow(<AddToOutfit addToOutfit={sampleAddToOutfit} />);
+    wrapper = shallow(
+      <AddToOutfit
+        addToOutfit={sampleAddToOutfit}
+        currentProduct={sampleProduct}
+      />,
+    );
   });
 
-  test('App component should render correctly', () => {
+  test('AddToOutfit component should render correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 

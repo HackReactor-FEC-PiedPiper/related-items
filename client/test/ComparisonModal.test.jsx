@@ -5,7 +5,7 @@ import ComparisonModal from '../src/components/ComparisonModal';
 
 configure({ adapter: new Adapter() });
 
-describe('App should render properly', () => {
+describe('ComparisonModal should render properly', () => {
   let wrapper;
 
   const sampleModal = true;
@@ -15,7 +15,7 @@ describe('App should render properly', () => {
   const sampleProductOne = {
     id: 13,
     category: 'Dress',
-    name: 'Polka Dot A-Line',
+    name: 'Polka Dot A-Line Dress',
     price: '$110',
     photoURL: null,
     ratings: {},
@@ -39,7 +39,7 @@ describe('App should render properly', () => {
     />);
   });
 
-  test('App component should render correctly', () => {
+  test('ComparisonModal component should render correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
 });

@@ -12,6 +12,10 @@ const AddToOutfit = ({ addToOutfit, currentProduct }) => (
   </div>
 );
 
+AddToOutfit.defaultProps = {
+  currentProduct: null,
+};
+
 AddToOutfit.propTypes = {
   addToOutfit: PropTypes.func.isRequired,
   currentProduct: PropTypes.shape(
@@ -29,7 +33,7 @@ AddToOutfit.propTypes = {
         5: PropTypes.number,
       }),
     },
-  ).isRequired,
+  ),
 };
 
 export default AddToOutfit;
