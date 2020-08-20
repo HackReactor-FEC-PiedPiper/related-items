@@ -87,6 +87,10 @@ const Outfit = ({ currentProduct }) => {
   );
 };
 
+Outfit.defaultProps = {
+  currentProduct: null,
+};
+
 Outfit.propTypes = {
   currentProduct: PropTypes.shape(
     {
@@ -103,7 +107,7 @@ Outfit.propTypes = {
         5: PropTypes.number,
       }),
     },
-  ).isRequired,
+  ),
 };
 
 export default Outfit;

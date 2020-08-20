@@ -94,6 +94,10 @@ const RelatedProducts = ({ currentProduct }) => {
   );
 };
 
+RelatedProducts.defaultProps = {
+  currentProduct: null,
+};
+
 RelatedProducts.propTypes = {
   currentProduct: PropTypes.shape(
     {
@@ -110,7 +114,7 @@ RelatedProducts.propTypes = {
         5: PropTypes.number,
       }),
     },
-  ).isRequired,
+  ),
 };
 
 export default RelatedProducts;
