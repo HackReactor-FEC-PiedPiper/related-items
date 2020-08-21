@@ -4,6 +4,11 @@ import axios from 'axios';
 import Carousel from 'react-multi-carousel';
 import Card from './Card';
 import ComparisonModal from './ComparisonModal';
+import './css/main.css';
+import './css/carousel.css';
+import './css/revicons.eot';
+import './css/revicons.ttf';
+import './css/revicons.woff';
 
 const RelatedProducts = ({ currentProduct }) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
