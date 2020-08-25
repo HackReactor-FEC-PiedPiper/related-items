@@ -11,6 +11,14 @@ app.listen(PORT, () => {
 
 app.use(express.static('client/public'));
 
+app.get('/rp-module', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/public/bundle.js'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/public/index.html'), (err) => {
     if (err) {
