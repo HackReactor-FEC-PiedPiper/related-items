@@ -1,22 +1,19 @@
-* {
+#relatedProducts {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-body {
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
 }
 
-h2 {
+#relatedProducts h2 {
   color: #777070;
   font-weight: 400;
   font-size: 17px;
   margin-bottom: 20px;
 }
 
-h3 {
+#relatedProducts h3 {
   font-size: 15px;
 }
 
@@ -60,7 +57,7 @@ h3 {
   margin: 20px;
 }
 
-img {
+#relatedProducts img {
   height: 250px;
   width: 100%;
   object-fit: cover;
@@ -173,12 +170,12 @@ td {
   justify-content: center;
 }
 
-a {
+#relatedProducts a {
   text-decoration: none;
   color: inherit;
 }
 
-a:hover {
+#relatedProducts a:hover {
   text-decoration: none;
   color: inherit;
 }

@@ -10,4 +10,4 @@ ReactDOM.render((
       <Redirect to="/5" />
     </Route>
   </Router>
-), document.getElementById('app'));
+), document.getElementById('relatedProducts'));
