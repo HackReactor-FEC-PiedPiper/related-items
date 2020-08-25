@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should render properly App component should render correctly 1`] = `ShallowWrapper {}`;
-
-exports[`ComparisonModal should render properly App component should render correctly 1`] = `ShallowWrapper {}`;
-
 exports[`ComparisonModal should render properly ComparisonModal component should render correctly 1`] = `ShallowWrapper {}`;
