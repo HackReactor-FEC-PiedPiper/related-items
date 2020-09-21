@@ -9,7 +9,7 @@ app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
 });
 
-app.use(express.static('client/public'));
+app.use('/', express.static('client/public'));
 
 app.get('/rp-module', (req, res) => {
   res.sendFile(path.join(__dirname, 'client/public/bundle.js'), (err) => {

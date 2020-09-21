@@ -20,9 +20,9 @@ const Card = ({ product, handleClick, button }) => {
             </div>
           </Link>
         )}
-      { button === 'star' ? (
+      { button === 'compare' ? (
         <i
-          className="far fa-star star-btn"
+          className="fas fa-exchange-alt compare-btn"
           onClick={() => handleClick(product)}
           role="button"
           tabIndex={0}
