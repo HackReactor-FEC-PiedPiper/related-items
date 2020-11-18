@@ -21,8 +21,30 @@
   color: #777070;
 }
 
+/* Button Styling */
+.btn {
+  position: absolute;
+  right: 0;
+  margin: 10px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn--compare {
+  color: white;
+}
+
+.btn--delete {
+  color: red;
+}
+
 /* Card Styling */
-.card {
+.c-card {
   border: 1px solid #777070;
   background-color: white;
   width: 250px;
@@ -30,17 +52,10 @@
   flex-direction: column;
   justify-content: space-between;
   height: 365px;
+  position: relative;
 }
 
-.card-content {
-  margin: 10px;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.image-placeholder {
+.c-card__image-placeholder {
   width: 100%;
   height: 250px;
   background-color: #ddd;
@@ -52,44 +67,53 @@
   text-align: center;
 }
 
-.image-placeholder i {
+.c-card__icon {
   font-size: 50px;
   margin: 20px;
 }
 
-#relatedProducts img {
+.c-card__content {
+  margin: 10px;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.c-card__image {
   height: 250px;
   width: 100%;
   object-fit: cover;
 }
 
-.card-content div {
+.c-card__text {
   font-size: 13px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-.compare-btn {
+.c-card__btn {
   position: absolute;
   right: 0;
   margin: 10px;
-  color: white;
   font-size: 20px;
-}
-
-.x-btn {
-  position: absolute;
-  right: 0;
-  margin: 10px;
-  color: red;
-  font-size: 20px;
-}
-
-i:hover {
   cursor: pointer;
 }
 
+.c-card__btn:hover {
+  cursor: pointer;
+}
+
+.c-card__btn--compare {
+  color: white;
+}
+
+.c-card__btn--delete {
+  color: red;
+}
+
 /* Related Products & Margin Styling */
-#related-products, #outfit {
+#related-products,
+#outfit {
   margin: 75px auto;
   max-width: 1100px;
 }
@@ -161,7 +185,8 @@ td {
   line-height: 1.6;
 }
 
-.add-to-outfit div, .add-to-outfit strong {
+.add-to-outfit div,
+.add-to-outfit strong {
   margin-left: 10px;
   margin-right: 10px;
 }

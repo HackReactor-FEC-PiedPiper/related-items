@@ -10,19 +10,19 @@ const Card = ({ product, handleClick, button }) => {
   } = product;
 
   return (
-    <div className="card">
+    <div className="c-card">
       {photoURL
-        ? <Link to={`/${id}`}><img src={photoURL} alt={name} className="link" /></Link> : (
-          <Link to={`/${id}`} className="link">
-            <div className="image-placeholder">
+        ? <Link to={`/${id}`}><img className="c-card__image" src={photoURL} alt={name} /></Link> : (
+          <Link to={`/${id}`}>
+            <div className="c-card__image-placeholder">
               <div>No picture to display</div>
-              <i className="fas fa-camera" />
+              <i className="c-card__icon fas fa-camera" />
             </div>
           </Link>
         )}
       { button === 'compare' ? (
         <i
-          className="fas fa-exchange-alt compare-btn"
+          className="fas fa-exchange-alt c-card__btn c-card__btn--compare"
           onClick={() => handleClick(product)}
           role="button"
           tabIndex={0}
@@ -31,7 +31,7 @@ const Card = ({ product, handleClick, button }) => {
         />
       ) : (
         <i
-          className="far fa-times-circle x-btn"
+          className="far fa-times-circle c-card__btn c-card__btn--delete"
           onClick={() => handleClick(id)}
           role="button"
           tabIndex={0}
@@ -39,10 +39,10 @@ const Card = ({ product, handleClick, button }) => {
           aria-label="delete-from-outfit"
         />
       )}
-      <div className="card-content">
-        <div id="category" className="light">{category}</div>
+      <div className="c-card__content">
+        <div id="category" className="c-card__text light">{category}</div>
         <Link to={`/${id}`}><h3>{name}</h3></Link>
-        <div id="price" className="light">
+        <div id="price" className="c-card__text light">
           {price}
         </div>
         {Object.keys(ratings).length !== 0 ? <Stars ratings={ratings} /> : null}

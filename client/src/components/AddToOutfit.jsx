@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './css/main.css';
 
 const AddToOutfit = ({ addToOutfit, currentProduct }) => (
-  <div className="card outfit">
+  <div className="c-card outfit">
     <i className="fas fa-plus plus" onClick={() => addToOutfit(currentProduct)} role="button" tabIndex={0} onKeyPress={() => addToOutfit(currentProduct)} aria-label="add-to-outfit" />
     <div className="add-to-outfit">
       <div>Add</div>
