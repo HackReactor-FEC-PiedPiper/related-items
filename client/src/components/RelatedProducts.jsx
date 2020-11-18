@@ -79,8 +79,8 @@ const RelatedProducts = ({ currentProduct }) => {
   };
 
   return (
-    <div id="related-products">
-      <h2>RELATED PRODUCTS</h2>
+    <div id="related-products" className="c-related-products">
+      <h2 className="c-related-products__header">RELATED PRODUCTS</h2>
       <Carousel responsive={responsive}>
         {relatedProducts.map((product) => (
           <Card key={product.id} product={product} handleClick={toggle} button="compare" />

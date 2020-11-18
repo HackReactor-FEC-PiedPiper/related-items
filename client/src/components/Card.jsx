@@ -12,8 +12,8 @@ const Card = ({ product, handleClick, button }) => {
   return (
     <div className="c-card">
       {photoURL
-        ? <Link to={`/${id}`}><img className="c-card__image" src={photoURL} alt={name} /></Link> : (
-          <Link to={`/${id}`}>
+        ? <Link to={`/${id}`} className="c-card__link"><img className="c-card__image" src={photoURL} alt={name} /></Link> : (
+          <Link to={`/${id}`} className="c-card__link">
             <div className="c-card__image-placeholder">
               <div>No picture to display</div>
               <i className="c-card__icon fas fa-camera" />
@@ -41,7 +41,7 @@ const Card = ({ product, handleClick, button }) => {
       )}
       <div className="c-card__content">
         <div id="category" className="c-card__text light">{category}</div>
-        <Link to={`/${id}`}><h3>{name}</h3></Link>
+        <Link to={`/${id}`} className="c-card__link"><h3 className="c-card__name">{name}</h3></Link>
         <div id="price" className="c-card__text light">
           {price}
         </div>

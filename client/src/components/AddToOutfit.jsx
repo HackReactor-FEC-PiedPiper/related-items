@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './css/main.css';
 
 const AddToOutfit = ({ addToOutfit, currentProduct }) => (
-  <div className="c-card outfit">
-    <i className="fas fa-plus plus" onClick={() => addToOutfit(currentProduct)} role="button" tabIndex={0} onKeyPress={() => addToOutfit(currentProduct)} aria-label="add-to-outfit" />
-    <div className="add-to-outfit">
-      <div>Add</div>
-      <strong>{currentProduct.name}</strong>
-      <div>To Outfit</div>
+  <div className="c-card c-add-to-outfit">
+    <i className="c-add-to-outfit__icon fas fa-plus" onClick={() => addToOutfit(currentProduct)} role="button" tabIndex={0} onKeyPress={() => addToOutfit(currentProduct)} aria-label="c-add-to-outfit" />
+    <div className="c-add-to-outfit__text">
+      <div className="c-add-to-outfit__word">Add</div>
+      <strong className="c-add-to-outfit__word">{currentProduct.name}</strong>
+      <div className="c-add-to-outfit__word">To Outfit</div>
     </div>
   </div>
 );

@@ -82,8 +82,8 @@ const Outfit = ({ currentProduct }) => {
   };
 
   return (
-    <div id="outfit">
-      <h2>YOUR OUTFIT</h2>
+    <div id="outfit" className="c-outfit">
+      <h2 className="c-outfit__header">YOUR OUTFIT</h2>
       {assembleCarouselItems()}
     </div>
   );

@@ -31,7 +31,7 @@ const App = () => {
   }, [productId]);
 
   return (
-    <div>
+    <div className="related-items">
       <RelatedProducts currentProduct={currentProduct} />
       <Outfit currentProduct={currentProduct} />
     </div>

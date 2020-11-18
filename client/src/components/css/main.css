@@ -1,46 +1,48 @@
-#relatedProducts {
+/* Refactor into Sass Variable */
+.light {
+  color: #777070;
+}
+
+/* Global Styles  */
+
+/* Table */
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  /* border: 3px solid #333; */
+  text-align: center;
+}
+
+thead th:nth-child(1) {
+  width: 33%;
+}
+
+thead th:nth-child(2) {
+  width: 33%;
+}
+
+thead th:nth-child(3) {
+  width: 33%;
+}
+
+th {
+  letter-spacing: 2px;
+  padding: 20px;
+}
+
+td {
+  letter-spacing: 1px;
+  padding: 20px;
+}
+
+/* Styling for Top Level Component */
+.related-items {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
-}
-
-#relatedProducts h2 {
-  color: #777070;
-  font-weight: 400;
-  font-size: 17px;
-  margin-bottom: 20px;
-}
-
-#relatedProducts h3 {
-  font-size: 15px;
-}
-
-.light {
-  color: #777070;
-}
-
-/* Button Styling */
-.btn {
-  position: absolute;
-  right: 0;
-  margin: 10px;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.btn:hover {
-  cursor: pointer;
-}
-
-.btn--compare {
-  color: white;
-}
-
-.btn--delete {
-  color: red;
 }
 
 /* Card Styling */
@@ -91,6 +93,20 @@
   margin-bottom: 0.5rem;
 }
 
+.c-card__name {
+  font-size: 15px;
+}
+
+.c-card__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.c-card__link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
 .c-card__btn {
   position: absolute;
   right: 0;
@@ -111,96 +127,52 @@
   color: red;
 }
 
-/* Related Products & Margin Styling */
-#related-products,
-#outfit {
+/* Related Products Styling */
+.c-related-products {
   margin: 75px auto;
   max-width: 1100px;
 }
 
-.card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.c-related-products__header {
+  color: #777070;
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 20px;
 }
 
-/* Modal Styling */
-.modal-container {
-  display: flex;
-  flex-direction: row;
+/*Outfit Styling */
+.c-outfit {
+  margin: 75px auto;
+  max-width: 1100px;
 }
 
-.modal-column {
-  margin: 10px;
-}
-
-.custom-modal-style {
-  width: 800px;
-  text-align: center;
-}
-
-/* Table */
-table {
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;
-  /* border: 3px solid #333; */
-  text-align: center;
-}
-
-thead th:nth-child(1) {
-  width: 33%;
-}
-
-thead th:nth-child(2) {
-  width: 33%;
-}
-
-thead th:nth-child(3) {
-  width: 33%;
-}
-
-th {
-  letter-spacing: 2px;
-  padding: 20px;
-}
-
-td {
-  letter-spacing: 1px;
-  padding: 20px;
+.c-outfit__header {
+  color: #777070;
+  font-weight: 400;
+  font-size: 17px;
+  margin-bottom: 20px;
 }
 
 /* AddToOutfit Styling */
 
-.plus {
-  font-size: 50px;
-  margin: 20px auto;
-  color: green;
+.c-add-to-outfit {
+  justify-content: center;
 }
 
-.add-to-outfit {
+.c-add-to-outfit__text {
   font-size: 30px;
   margin: 5px auto;
   text-align: center;
   line-height: 1.6;
 }
 
-.add-to-outfit div,
-.add-to-outfit strong {
+.c-add-to-outfit__word {
   margin-left: 10px;
   margin-right: 10px;
 }
 
-.outfit {
-  justify-content: center;
-}
-
-#relatedProducts a {
-  text-decoration: none;
-  color: inherit;
-}
-
-#relatedProducts a:hover {
-  text-decoration: none;
-  color: inherit;
+.c-add-to-outfit__icon {
+  font-size: 50px;
+  margin: 20px auto;
+  color: green;
 }
