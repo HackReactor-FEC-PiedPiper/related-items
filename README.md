@@ -1,6 +1,6 @@
-# Pied Piper Retail Portal | Related Items
+# BellFlower Boutique | Related Items
 
-> Related-Items is a module of the Pied Piper Retail Portal. This module covers:
+> Related-Items is a module of BellFlower Boutique. This module covers:
 * Related product carousel
 * Modal comparing the product on the card to the product in the Product Overview module
 * Your Outfit List that persists across browser sessions
@@ -10,16 +10,16 @@
 )
 
 ## Technologies Used
-
-- HTML/CSS
-- Javascript
 - React
+- React Router
+- react-multi-carousel
+- Sass
+- Reactstrap
 - Node
 - Express
-- Reactstrap 
 - Jest
 - Enzyme
-- AWS EBS (Amazon Web Services Elastic Beanstalk)
+- AWS Elastic Beanstalk
 
 ## Development
 
