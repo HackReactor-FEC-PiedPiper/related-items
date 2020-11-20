@@ -10,16 +10,15 @@
 )
 
 ## Technologies Used
-
-- HTML/CSS
-- Javascript
 - React
+- React Router
+- Sass
+- Reactstrap
 - Node
 - Express
-- Reactstrap 
 - Jest
 - Enzyme
-- AWS EBS (Amazon Web Services Elastic Beanstalk)
+- AWS Elastic Beanstalk
 
 ## Development
 
