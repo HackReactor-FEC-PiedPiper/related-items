@@ -48,13 +48,13 @@ describe('Card should render properly', () => {
     expect(wrapper.find('#price').text()).toBe('$123');
   });
 
-  test('X icon should call a function when clicked', () => {
-    expect(wrapper.find('.x-btn').simulate('click'));
+  test('Delete icon should call a function when clicked', () => {
+    expect(wrapper.find('.c-card__btn--delete').simulate('click'));
     expect(result).toBe('Click! Here is the input: 5');
   });
 
-  test('X icon should call a function when key is pressed', () => {
-    expect(wrapper.find('.x-btn').simulate('keyPress'));
+  test('Delete icon should call a function when key is pressed', () => {
+    expect(wrapper.find('.c-card__btn--delete').simulate('keyPress'));
     expect(result).toBe('Click! Here is the input: 5');
   });
 
@@ -74,7 +74,7 @@ describe('Card should render properly', () => {
     resultTwo = `Click! Here is the input: ${JSON.stringify(input)}`;
   };
 
-  const sampleButtonTwo = 'star';
+  const sampleButtonTwo = 'compare';
 
   beforeEach(() => {
     wrapperTwo = shallow(<Card
@@ -84,13 +84,13 @@ describe('Card should render properly', () => {
     />);
   });
 
-  test('Star icon should call a function when clicked', () => {
-    expect(wrapperTwo.find('.star-btn').simulate('click'));
+  test('Compare icon should call a function when clicked', () => {
+    expect(wrapperTwo.find('.c-card__btn--compare').simulate('click'));
     expect(resultTwo).toBe('Click! Here is the input: {"id":5,"category":"Shoes","name":"Heir Force Ones","price":"$123","photoURL":null,"ratings":{}}');
   });
 
-  test('Star icon should call a function when key is pressed', () => {
-    expect(wrapperTwo.find('.star-btn').simulate('keyPress'));
+  test('Compare icon should call a function when key is pressed', () => {
+    expect(wrapperTwo.find('.c-card__btn--compare').simulate('keyPress'));
     expect(resultTwo).toBe('Click! Here is the input: {"id":5,"category":"Shoes","name":"Heir Force Ones","price":"$123","photoURL":null,"ratings":{}}');
   });
 });
