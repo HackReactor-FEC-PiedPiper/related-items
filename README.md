@@ -12,6 +12,7 @@
 ## Technologies Used
 - React
 - React Router
+- react-multi-carousel
 - Sass
 - Reactstrap
 - Node
