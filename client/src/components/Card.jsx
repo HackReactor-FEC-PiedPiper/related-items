@@ -40,9 +40,9 @@ const Card = ({ product, handleClick, button }) => {
         />
       )}
       <div className="c-card__content">
-        <div id="category" className="c-card__text light">{category}</div>
+        <div id="category" className="c-card__text">{category}</div>
         <Link to={`/${id}`} className="c-card__link"><h3 className="c-card__name">{name}</h3></Link>
-        <div id="price" className="c-card__text light">
+        <div id="price" className="c-card__text">
           {price}
         </div>
         {Object.keys(ratings).length !== 0 ? <Stars ratings={ratings} /> : null}
