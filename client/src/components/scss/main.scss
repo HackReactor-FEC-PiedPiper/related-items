@@ -7,30 +7,33 @@ table {
   table-layout: fixed;
   width: 100%;
   border-collapse: collapse;
-  /* border: 3px solid #333; */
   text-align: center;
-}
 
-thead th:nth-child(1) {
-  width: 33%;
-}
+  thead {
+    th {
+      &:nth-child(1) {
+        width: 33%;
+      }
 
-thead th:nth-child(2) {
-  width: 33%;
-}
+      &:nth-child(2) {
+        width: 33%;
+      }
 
-thead th:nth-child(3) {
-  width: 33%;
-}
+      &:nth-child(3) {
+        width: 33%;
+      }
+    }
+  }
 
-th {
-  letter-spacing: 2px;
-  padding: 20px;
-}
+  th {
+    letter-spacing: 2px;
+    padding: 20px;
+  }
 
-td {
-  letter-spacing: 1px;
-  padding: 20px;
+  td {
+    letter-spacing: 1px;
+    padding: 20px;
+  }
 }
 
 /* Styling for Top Level Component */
@@ -42,135 +45,137 @@ td {
   color: $dark-color;
 }
 
-/* Card Styling */
-.c-card {
-  border: 1px solid $medium-color;
-  background-color: white;
-  width: 250px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 365px;
-  position: relative;
-}
+// Styling Components
+.c {
+  /* Card Styling */
+  &-card {
+    border: 1px solid $medium-color;
+    background-color: white;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 365px;
+    position: relative;
 
-.c-card__image-placeholder {
-  width: 100%;
-  height: 250px;
-  background-color: $light-color;
-  font-size: $large-font;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+    &__image-placeholder {
+      width: 100%;
+      height: 250px;
+      background-color: $light-color;
+      font-size: $large-font;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-.c-card__icon {
-  font-size: $extra-large-font;
-  margin: 20px;
-}
+    &__icon {
+      font-size: $extra-large-font;
+      margin: 20px;
+    }
 
-.c-card__content {
-  margin: 10px;
-  color: $dark-color;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
+    &__content {
+      margin: 10px;
+      color: $dark-color;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
 
-.c-card__image {
-  height: 250px;
-  width: 100%;
-  object-fit: cover;
-}
+    &__image {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
 
-.c-card__text {
-  font-size: $extra-small-font;
-  margin-bottom: 0.5rem;
-  color: $medium-color;
-}
+    &__text {
+      font-size: $extra-small-font;
+      margin-bottom: 0.5rem;
+      color: $medium-color;
+    }
 
-.c-card__name {
-  font-size: $small-font;
-}
+    &__name {
+      font-size: $small-font;
+    }
 
-.c-card__link {
-  text-decoration: none;
-  color: inherit;
-}
+    &__link {
+      text-decoration: none;
+      color: inherit;
 
-.c-card__link:hover {
-  text-decoration: none;
-  color: inherit;
-}
+      &:hover {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
 
-.c-card__btn {
-  position: absolute;
-  right: 0;
-  margin: 10px;
-  font-size: $medium-font;
-  cursor: pointer;
-}
+    &__btn {
+      position: absolute;
+      right: 0;
+      margin: 10px;
+      font-size: $medium-font;
+      cursor: pointer;
 
-.c-card__btn:hover {
-  cursor: pointer;
-}
+      &:hover {
+        cursor: pointer;
+      }
 
-.c-card__btn--compare {
-  color: white;
-}
+      &--compare {
+        color: white;
+      }
 
-.c-card__btn--delete {
-  color: red;
-}
+      &--delete {
+        color: red;
+      }
+    }
+  }
 
-/* Related Products Styling */
-.c-related-products {
-  margin: 75px auto;
-  max-width: $website-width;
-}
+  /* Related Products Styling */
+  &-related-products {
+    margin: 75px auto;
+    max-width: $website-width;
 
-.c-related-products__header {
-  color: $medium-color;
-  font-weight: 400;
-  font-size: $small-font;
-  margin-bottom: 20px;
-}
+    &__products_header {
+      color: $medium-color;
+      font-weight: 400;
+      font-size: $small-font;
+      margin-bottom: 20px;
+    }
+  }
 
-/*Outfit Styling */
-.c-outfit {
-  margin: 75px auto;
-  max-width: $website-width;
-}
+  /*Outfit Styling */
+  &-outfit {
+    margin: 75px auto;
+    max-width: $website-width;
 
-.c-outfit__header {
-  color: $medium-color;
-  font-weight: 400;
-  font-size: $small-font;
-  margin-bottom: 20px;
-}
+    &__header {
+      color: $medium-color;
+      font-weight: 400;
+      font-size: $small-font;
+      margin-bottom: 20px;
+    }
+  }
 
-/* AddToOutfit Styling */
+  /* AddToOutfit Styling */
+  &-add-to-outfit {
+    justify-content: center;
 
-.c-add-to-outfit {
-  justify-content: center;
-}
+    &__text {
+      font-size: $large-font;
+      margin: 5px auto;
+      text-align: center;
+      line-height: 1.6;
+    }
 
-.c-add-to-outfit__text {
-  font-size: $large-font;
-  margin: 5px auto;
-  text-align: center;
-  line-height: 1.6;
-}
+    &__word {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
 
-.c-add-to-outfit__word {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.c-add-to-outfit__icon {
-  font-size: $extra-large-font;
-  margin: 20px auto;
-  color: green;
+    &__icon {
+      font-size: $extra-large-font;
+      margin: 20px auto;
+      color: green;
+    }
+  }
 }
