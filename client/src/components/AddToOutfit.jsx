@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './css/main.css';
+import './scss/main.scss';
 
 const AddToOutfit = ({ addToOutfit, currentProduct }) => (
   <div className="c-card c-add-to-outfit">

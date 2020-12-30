@@ -47,7 +47,6 @@ table {
 
 // Styling Components
 .c {
-  /* Card Styling */
   &-card {
     border: 1px solid $medium-color;
     background-color: white;
@@ -130,12 +129,11 @@ table {
     }
   }
 
-  /* Related Products Styling */
   &-related-products {
     margin: 75px auto;
     max-width: $website-width;
 
-    &__products_header {
+    &__header {
       color: $medium-color;
       font-weight: 400;
       font-size: $small-font;
@@ -143,7 +141,6 @@ table {
     }
   }
 
-  /*Outfit Styling */
   &-outfit {
     margin: 75px auto;
     max-width: $website-width;
@@ -156,7 +153,6 @@ table {
     }
   }
 
-  /* AddToOutfit Styling */
   &-add-to-outfit {
     justify-content: center;
 

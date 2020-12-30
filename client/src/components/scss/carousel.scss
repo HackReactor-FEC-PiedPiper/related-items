@@ -29,6 +29,62 @@
     }
   }
 
+  &-dot {
+    &-list {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      left: 0;
+      right: 0;
+      justify-content: center;
+      margin: auto;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      text-align: center;
+    }
+
+    button {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      opacity: 1;
+      padding: 5px 5px 5px 5px;
+      box-shadow: none;
+      transition: background 0.5s;
+      border-width: 2px;
+      border-style: solid;
+      border-color: grey;
+      padding: 0;
+      margin: 0;
+      margin-right: 6px;
+      outline: 0;
+      cursor: pointer;
+
+      &:hover:active {
+        background: #080808;
+      }
+    }
+
+    &--active {
+      button {
+        background: #080808;
+      }
+    }
+  }
+
+  &-item {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      flex-shrink: 0 !important;
+    }
+  }
+}
+
+.react-multiple-carousel {
   &__arrow {
     position: absolute;
     outline: 0;
@@ -71,68 +127,5 @@
         content: "\e825";
       }
     }
-  }
-
-  &-dot {
-    button {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      opacity: 1;
-      padding: 5px 5px 5px 5px;
-      box-shadow: none;
-      transition: background 0.5s;
-      border-width: 2px;
-      border-style: solid;
-      border-color: grey;
-      padding: 0;
-      margin: 0;
-      margin-right: 6px;
-      outline: 0;
-      cursor: pointer;
-
-      &:hover:active {
-        background: #080808;
-      }
-    }
-
-    &-list {
-      position: absolute;
-      bottom: 0;
-      display: flex;
-      left: 0;
-      right: 0;
-      justify-content: center;
-      margin: auto;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      text-align: center;
-    }
-
-    &--active {
-      button {
-        background: #080808;
-      }
-    }
-  }
-
-  &-item {
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-
-    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-      flex-shrink: 0 !important;
-    }
-  }
-}
-
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .react-multi-carousel-item {
-    flex-shrink: 0 !important;
-  }
-  .react-multi-carousel-track {
-    overflow: visible !important;
   }
 }

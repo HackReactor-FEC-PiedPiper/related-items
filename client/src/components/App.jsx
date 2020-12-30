@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import RelatedProducts from './RelatedProducts';
 import Outfit from './Outfit';
-import './css/main.css';
+import './scss/main.scss';
 
 const App = () => {
   const { productId } = useParams();

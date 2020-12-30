@@ -4,8 +4,8 @@ import axios from 'axios';
 import Carousel from 'react-multi-carousel';
 import Card from './Card';
 import ComparisonModal from './ComparisonModal';
-import './css/main.css';
-import './css/carousel.css';
+import './scss/main.scss';
+import './scss/carousel.scss';
 
 const RelatedProducts = ({ currentProduct }) => {
   const [relatedProducts, setRelatedProducts] = useState([]);

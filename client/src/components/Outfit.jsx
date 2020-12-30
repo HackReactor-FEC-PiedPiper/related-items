@@ -4,8 +4,8 @@ import Carousel from 'react-multi-carousel';
 import localStorage from 'local-storage';
 import AddToOutfit from './AddToOutfit';
 import Card from './Card';
-import './css/main.css';
-import './css/carousel.css';
+import './scss/main.scss';
+import './scss/carousel.scss';
 
 const Outfit = ({ currentProduct }) => {
   const [outfit, setOutfit] = useState([]);

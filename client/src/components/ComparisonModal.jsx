@@ -5,7 +5,7 @@ import {
   Button, Modal, ModalHeader, ModalBody, ModalFooter,
 } from 'reactstrap';
 import Stars from './Stars';
-import './css/main.css';
+import './scss/main.scss';
 
 const ComparisonModal = ({
   modal, toggle, productToCompare, currentProduct,
